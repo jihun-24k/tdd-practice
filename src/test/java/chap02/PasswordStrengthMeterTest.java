@@ -9,7 +9,9 @@ public class PasswordStrengthMeterTest {
     @Test
     void meetsAllCriteria_Then_Strong() {
         PasswordStrengthMeter meter = new PasswordStrengthMeter();
-        int result = meter.meter("ab12!@AB");
-        assertEquals(2, result);
+        PasswordStrength result = meter.meter("ab12!@AB");
+        assertEquals(PasswordStrength.STRONG, result);
+        PasswordStrength result2 = meter.meter("abc1!@AB");
+        assertEquals(PasswordStrength.STRONG, result2);
     }
 }
