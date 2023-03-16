@@ -8,12 +8,27 @@ public class PasswordStrengthMeter {
         if (s.length() < 8) {
             return PasswordStrength.NORMAL;
         }
-        boolean containsNum = false;
+        boolean containsNum = meetsContainingNumberCriteria(s);
+        if(!containsNum) return PasswordStrength.NORMAL;
+
+        boolean containsUpp = meetsContainingUppercaseCriteria(s);
+        if(!containsUpp) return PasswordStrength.NORMAL;
+        return PasswordStrength.STRONG;
+    }
+
+    private boolean meetsContainingUppercaseCriteria(String s) {
+        for (char ch : s.toCharArray()) {
+            if (Character.isUpperCase(ch))
+                return true;
+        }
+        return false;
+    }
+
+    private boolean meetsContainingNumberCriteria(String s) {
         for (char ch : s.toCharArray()) {
             if (ch >= '0' && ch <= '9')
-                containsNum = true;
+                return true;
         }
-        if(!containsNum) return PasswordStrength.NORMAL;
-        return PasswordStrength.STRONG;
+        return false;
     }
 }
