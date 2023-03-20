@@ -9,10 +9,13 @@ public class PasswordStrengthMeter {
         boolean containsNum = meetsContainingNumberCriteria(s);
         boolean containsUpp = meetsContainingUppercaseCriteria(s);
 
-        if (!lengthEnough && !containsUpp && !containsNum) {
+        if (lengthEnough && !containsUpp && !containsNum) {
             return PasswordStrength.WEAK;
         }
         if (!lengthEnough && !containsUpp && containsNum) {
+            return PasswordStrength.WEAK;
+        }
+        if (!lengthEnough && containsUpp && !containsNum) {
             return PasswordStrength.WEAK;
         }
 
