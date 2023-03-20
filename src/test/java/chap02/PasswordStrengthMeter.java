@@ -10,7 +10,7 @@ public class PasswordStrengthMeter {
         if(meetsContainingNumberCriteria(s)) meetCounts++;
         if (meetsContainingUppercaseCriteria(s)) meetCounts++;
 
-        if (meetCounts == 1) return PasswordStrength.WEAK;
+        if (meetCounts <= 1) return PasswordStrength.WEAK;
         if (meetCounts == 2) return PasswordStrength.NORMAL;
         return PasswordStrength.STRONG;
     }
