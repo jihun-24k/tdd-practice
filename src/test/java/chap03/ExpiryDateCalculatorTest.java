@@ -15,5 +15,12 @@ public class ExpiryDateCalculatorTest {
         LocalDate expiryDate = cal.calculateExpiryDate(billingDate, payAmount);
 
         assertEquals(LocalDate.of(2023,4,1), expiryDate);
+
+        LocalDate billingDate2 = LocalDate.of(2023, 5,5);
+        int payAmount2 = 10_000;
+
+        LocalDate expiryDate2 = cal.calculateExpiryDate(billingDate2, payAmount2);
+
+        assertEquals(LocalDate.of(2023,6,5), expiryDate2);
     }
 }
