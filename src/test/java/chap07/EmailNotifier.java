@@ -1,5 +1,5 @@
 package chap07;
 
-public class EmailNotifier {
-
+public interface EmailNotifier {
+    void sendRegisterEmail(String email);
 }
