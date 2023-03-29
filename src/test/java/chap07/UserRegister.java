@@ -1,5 +1,8 @@
 package chap07;
 
+import chap07.exception.DupIdException;
+import chap07.exception.WeakPasswordException;
+
 public class UserRegister {
     private WeakPasswordChecker passwordChecker;
     private UserRepository userRepository;
